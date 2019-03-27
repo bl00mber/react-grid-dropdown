@@ -26,7 +26,7 @@ class TestComponent extends React.Component {
     super(props);
 
     this.state = {
-      activeItem: 'itemId1',
+      activeItem: '1 item',
       items: [
         {section: '1 section', label: '1 item', background: '', onClick: () => this.setActiveItem('1 item')},
         {section: '1 section', label: '2 item', background: '', onClick: () => this.setActiveItem('2 item')},
@@ -44,7 +44,7 @@ class TestComponent extends React.Component {
     }
   }
 
-  setActiveItem = (itemId) => this.setState({ activeItem: itemId })
+  setActiveItem = (itemLabel) => this.setState({ activeItem: itemLabel })
 
   render() {
     const { theme, classes, styles } = this.props;
@@ -53,6 +53,7 @@ class TestComponent extends React.Component {
     return (
       <div>
         <GridDropdown
+          label="Dropdown"
           activeItem={activeItem}
           items={items}
           cols={3}

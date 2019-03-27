@@ -1,5 +1,5 @@
 {
-  "name": "material-ui-grid-dropdown",
+  "name": "react-grid-dropdown",
   "version": "1.0.0",
   "description": "Dropdown with customizable grid",
   "main": "dist/lib.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bl00mber/material-ui-grid-dropdown.git"
+    "url": "git+https://github.com/bl00mber/react-grid-dropdown.git"
   },
   "keywords": [
     "material-ui",
@@ -31,9 +31,9 @@
   "author": "Nick Reiley <bloomber111@gmail.com> (http://github.com/bl00mber)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bl00mber/material-ui-grid-dropdown/issues"
+    "url": "https://github.com/bl00mber/react-grid-dropdown/issues"
   },
-  "homepage": "https://github.com/bl00mber/material-ui-grid-dropdown",
+  "homepage": "https://github.com/bl00mber/react-grid-dropdown",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/polyfill": "^7.4.0",
@@ -55,6 +55,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
   }

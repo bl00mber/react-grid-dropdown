@@ -1,19 +1,20 @@
-# Material-UI-grid-dropdown
+# React-grid-dropdown
 
-[![npm version](https://img.shields.io/npm/v/material-ui-grid-dropdown.svg?style=flat)](https://www.npmjs.com/package/material-ui-grid-dropdown)
+[![npm version](https://img.shields.io/npm/v/react-grid-dropdown.svg?style=flat)](https://www.npmjs.com/package/react-grid-dropdown)
 
 ## Installation
 ```shell-script
-npm install material-ui-grid-dropdown --save
+npm install react-grid-dropdown --save
 ```
 
 ## Usage
 ```jsx
-import GridDropdown from 'material-ui-grid-dropdown'
+import GridDropdown from 'react-grid-dropdown'
 
 const { itemId } = this.state;
 
 <GridDropdown
+  label="Dropdown"
   activeItem={itemId}
   items={
     [{section: 'category', label: 'item', background: 'https://...', id: 'itemId', onClick: () => this.setState({ item: 'itemId' })}]
@@ -30,6 +31,10 @@ const { itemId } = this.state;
     <th> Default </th>
   </tr>
 
+  <tr>
+    <td> label </td>
+    <td colspan="3"> string </td>
+  </tr>
   <tr>
     <td> activeItem </td>
     <td> string </td>
@@ -108,6 +113,6 @@ const { itemId } = this.state;
 </table>
 
 ## License
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/material-ui-grid-dropdown/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bl00mber/react-grid-dropdown/blob/master/LICENSE)
 
 Developed by [bl00mber](https://github.com/bl00mber) for [cellular automata generator](https://github.com/bl00mber/cellular-automata).
