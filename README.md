@@ -45,18 +45,6 @@ const { itemId } = this.state;
     <td> array </td>
     <td colspan="2"> items to render in the dropdown </td>
   </tr>
-  <tr>
-    <td> cols </td>
-    <td> number </td>
-    <td> columns </td>
-    <td> 3 </td>
-  </tr>
-  <tr>
-    <td> rows </td>
-    <td> number </td>
-    <td> rows to show simultaneously </td>
-    <td> 3 </td>
-  </tr>
 
   <tr>
     <td> mainColor </td>

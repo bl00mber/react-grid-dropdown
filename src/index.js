@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Ripples from 'react-ripples'
 
 import './styles.scss'
 
@@ -14,9 +15,6 @@ class GridDropdown extends React.Component {
       background: PropTypes.string,
       onClick: PropTypes.func,
     })).isRequired,
-
-    cols: PropTypes.number,
-    rows: PropTypes.number,
 
     mainColor: PropTypes.string,
     textColor: PropTypes.string,
@@ -35,8 +33,6 @@ class GridDropdown extends React.Component {
   static defaultProps = {
     label: 'Dropdown',
     activeItem: 'not set',
-    cols: 3,
-    rows: 3,
 
     mainColor: 'red',
     textColor: 'white',
@@ -51,46 +47,61 @@ class GridDropdown extends React.Component {
     super(props)
 
     this.state = {
-      dropdown: false,
+      dropdown: true,
     }
   }
 
-  toggleDropdown = () => this.setState({ dropdown: true })
+  toggleDropdown = () => this.setState({ dropdown: !this.state.dropdown })
 
-  getItemStyle = (item, itemLabelStyle) => {
+  getItemStyle = (itemStyle, item) => {
     if (item.backgroundImage) {
-      return {itemLabelStyle, ...{backgroundImage: item.backgroundImage}}
+      return {itemStyle, ...{backgroundImage: item.backgroundImage}}
     } else if (item.backgroundColor) {
-      return {itemLabelStyle, ...{backgroundColor: item.backgroundColor}}
+      return {itemStyle, ...{backgroundColor: item.backgroundColor}}
     } else {
-      return itemLabelStyle
+      return itemStyle
     }
   }
 
   render() {
-    const { label, activeItem, items, cols, rows } = this.props;
+    const { label, activeItem, items } = this.props;
     const { mainColor, textColor, buttonClass, dropdownClass, itemClass, itemLabelClass } = this.props;
     const { buttonStyle, dropdownStyle, itemStyle, itemLabelStyle } = this.props;
     const { dropdown } = this.state;
 
     const itemsJSX = items.map((item, index) =>
-      <div key={index}
-        className={itemClass?itemClass+' react-grid-dropdown__item':'react-grid-dropdown__item'}
-        style={this.getItemStyle(item, itemStyle)}>
-        <div className={itemLabelClass?itemLabelClass+' react-grid-dropdown__label':'react-grid-dropdown__label'}
-          style={itemLabelStyle}>{item.label}</div>
+      <div key={index} className={'react-grid-dropdown__item-container'}>
+        <Ripples during={800}>
+          <div className={itemClass?itemClass+' react-grid-dropdown__item':'react-grid-dropdown__item'}
+
+            style={this.getItemStyle(itemStyle, item)}
+            onClick={() => {
+              if (activeItem != item.label) {
+                setTimeout(() => {
+                  item.onClick()
+                  this.toggleDropdown()
+                }, 400)
+              }
+            }}>
+
+            <div className={(itemLabelClass?itemLabelClass+' react-grid-dropdown__label':'react-grid-dropdown__label')+(activeItem==item.label?' active':'')}
+              style={itemLabelStyle}>{item.label}</div>
+          </div>
+        </Ripples>
       </div>);
 
     return (
       <div className="react-grid-dropdown__container">
-        <div className={buttonClass?buttonClass+' react-grid-dropdown__button':'react-grid-dropdown__button'}
-          style={buttonStyle}
-          onMouseEnter={() => this.toggleDropdown()}>{label}</div>
+        <Ripples during={800}>
+          <div className={(buttonClass?buttonClass+' react-grid-dropdown__button':'react-grid-dropdown__button')+(dropdown?' active':'')}
+            style={buttonStyle}
+            onClick={() => this.toggleDropdown()}>{label}</div>
+        </Ripples>
 
-        {dropdown && <div className={dropdownClass?dropdownClass+' react-grid-dropdown__dropdown':'react-grid-dropdown__dropdown'}
+        <div className={(dropdownClass?dropdownClass+' react-grid-dropdown__dropdown':'react-grid-dropdown__dropdown')+(dropdown?' active':'')}
           style={dropdownStyle}>
           {itemsJSX}
-        </div>}
+        </div>
       </div>
     )
   }
