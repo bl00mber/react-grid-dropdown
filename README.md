@@ -85,7 +85,7 @@ const { itemId } = this.state;
     <td colspan="2"> class for each item in the dropdown </td>
   </tr>
   <tr>
-    <td> itemTextClass </td>
+    <td> itemLabelClass </td>
     <td> string </td>
     <td colspan="2"> class for text of each item </td>
   </tr>
@@ -106,7 +106,7 @@ const { itemId } = this.state;
     <td colspan="2"> style for each item in the dropdown </td>
   </tr>
   <tr>
-    <td> itemTextStyle </td>
+    <td> itemLabelStyle </td>
     <td> string </td>
     <td colspan="2"> style for text of each item </td>
   </tr>

@@ -26,7 +26,7 @@
   "files": [
     "LICENSE",
     "README.md",
-    "dist/"
+    "dist/lib.js"
   ],
   "author": "Nick Reiley <bloomber111@gmail.com> (http://github.com/bl00mber)",
   "license": "MIT",
@@ -42,6 +42,7 @@
     "babel-preset-react-app": "^7.0.2",
     "chai": "^4.2.0",
     "css-loader": "^2.1.1",
+    "img-loader": "^3.0.1",
     "mocha": "^6.0.2",
     "mocha-jsdom": "^2.0.0",
     "node-sass": "^4.11.0",

@@ -25,13 +25,16 @@ const common = {
         include: path.resolve(ROOT_PATH, 'src')
       },
       {
-        test: /\.png.*$/,
-        loaders: ['url-loader?limit=100000&mimetype=image/png'],
-        exclude: /node_modules/
-      },
-      {
         test: /\.scss$/,
         loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+            'url-loader?limit=100000',
+            'img-loader'
+          ],
+        exclude: /node_modules/
       }
     ]
   }

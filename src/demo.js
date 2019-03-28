@@ -2,6 +2,10 @@ import React from 'react'
 import { render } from 'react-dom'
 import GridDropdown from './index'
 
+import background1 from '../test/assets/background1.jpeg'
+import background2 from '../test/assets/background2.jpeg'
+import background3 from '../test/assets/background3.jpeg'
+
 class TestComponent extends React.Component {
   static defaultProps = {
     theme: {
@@ -12,13 +16,13 @@ class TestComponent extends React.Component {
       buttonClass: 'button-class',
       dropdownClass: 'dropdown-class',
       itemClass: 'item-class',
-      itemTextClass: 'item-text-class',
+      itemLabelClass: 'item-label-class',
     },
     styles: {
-      buttonStyle: 'button-style',
-      dropdownStyle: 'dropdown-style',
-      itemStyle: 'item-style',
-      itemTextStyle: 'item-text-style',
+      buttonStyle: {},
+      dropdownStyle: {},
+      itemStyle: {},
+      itemLabelStyle: {},
     },
   }
 
@@ -28,18 +32,19 @@ class TestComponent extends React.Component {
     this.state = {
       activeItem: '1 item',
       items: [
-        {section: '1 section', label: '1 item', background: '', onClick: () => this.setActiveItem('1 item')},
-        {section: '1 section', label: '2 item', background: '', onClick: () => this.setActiveItem('2 item')},
-        {section: '1 section', label: '3 item', background: '', onClick: () => this.setActiveItem('3 item')},
-        {section: '2 section', label: '4 item', background: '', onClick: () => this.setActiveItem('4 item')},
-        {section: '2 section', label: '5 item', background: '', onClick: () => this.setActiveItem('5 item')},
-        {section: '2 section', label: '6 item', background: '', onClick: () => this.setActiveItem('6 item')},
-        {section: '2 section', label: '7 item', background: '', onClick: () => this.setActiveItem('7 item')},
-        {section: '2 section', label: '8 item', background: '', onClick: () => this.setActiveItem('8 item')},
-        {section: '2 section', label: '9 item', background: '', onClick: () => this.setActiveItem('9 item')},
-        {section: '2 section', label: '10 item', background: '', onClick: () => this.setActiveItem('10 item')},
-        {section: '2 section', label: '11 item', background: '', onClick: () => this.setActiveItem('11 item')},
-        {section: '2 section', label: '12 item', background: '', onClick: () => this.setActiveItem('12 item')},
+        {section: '1 section', label: '1 item', backgroundImage: `url(${background1})`, onClick: () => this.setActiveItem('1 item')},
+        {section: '1 section', label: '2 item', backgroundImage: `url(${background2})`, onClick: () => this.setActiveItem('2 item')},
+        {section: '1 section', label: '3 item', backgroundImage: `url(${background3})`, onClick: () => this.setActiveItem('3 item')},
+        {section: '2 section', label: '4 item', backgroundImage: `url(${background2})`, onClick: () => this.setActiveItem('4 item')},
+        {section: '2 section', label: '5 item', backgroundImage: `url(${background1})`, onClick: () => this.setActiveItem('5 item')},
+        {section: '2 section', label: '6 item', backgroundImage: `url(${background3})`, onClick: () => this.setActiveItem('6 item')},
+        {section: '2 section', label: '7 item', backgroundColor: 'blue', onClick: () => this.setActiveItem('7 item')},
+        {section: '2 section', label: '8 item', backgroundColor: 'blue', onClick: () => this.setActiveItem('8 item')},
+        {section: '2 section', label: '9 item', backgroundColor: 'blue', onClick: () => this.setActiveItem('9 item')},
+        {section: '2 section', label: '10 item', backgroundColor: 'blue', onClick: () => this.setActiveItem('10 item')},
+        {section: '2 section', label: '11 item', backgroundColor: 'blue', onClick: () => this.setActiveItem('11 item')},
+        {section: '2 section', label: '12 item', backgroundColor: 'blue', onClick: () => this.setActiveItem('12 item')},
+        {label: '13 item'},
       ],
     }
   }
@@ -65,12 +70,12 @@ class TestComponent extends React.Component {
           buttonClass={classes.buttonClass}
           dropdownClass={classes.dropdownClass}
           itemClass={classes.itemClass}
-          itemTextClass={classes.itemTextClass}
+          itemLabelClass={classes.itemLabelClass}
 
           buttonStyle={styles.buttonStyle}
           dropdownStyle={styles.dropdownStyle}
           itemStyle={styles.itemStyle}
-          itemTextStyle={styles.itemTextStyle}
+          itemLabelStyle={styles.itemLabelStyle}
         />
       </div>
     )
