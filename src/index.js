@@ -13,11 +13,8 @@ class GridDropdown extends React.Component {
       section: PropTypes.string,
       label: PropTypes.string.isRequired,
       background: PropTypes.string,
-      onClick: PropTypes.func,
+      onClick: PropTypes.func.isRequired,
     })).isRequired,
-
-    mainColor: PropTypes.string,
-    textColor: PropTypes.string,
 
     buttonClass: PropTypes.string,
     dropdownClass: PropTypes.string,
@@ -34,9 +31,6 @@ class GridDropdown extends React.Component {
     label: 'Dropdown',
     activeItem: 'not set',
 
-    mainColor: 'red',
-    textColor: 'white',
-
     buttonStyle: {},
     dropdownStyle: {},
     itemStyle: {},
@@ -47,8 +41,27 @@ class GridDropdown extends React.Component {
     super(props)
 
     this.state = {
-      dropdown: true,
+      dropdown: false,
     }
+  }
+
+  sortItemsBySection = items => {
+    const sections = [{section: undefined, items: []}]
+    items.map(item => {
+      if (!item.section) { sections[0].items.push(item) }
+      else {
+        // search for index of object with section
+        let sectionIndex = sections.findIndex(section => section.section == item.section);
+        // if object not found, push new section to the array and set index as [sections.length-1]
+        if (sectionIndex == -1) {
+          sections.push({section: item.section, items: []})
+          sectionIndex = sections.length-1;
+        }
+        // push item to the index
+        sections[sectionIndex].items.push(item)
+      }
+    })
+    return sections
   }
 
   toggleDropdown = () => this.setState({ dropdown: !this.state.dropdown })
@@ -64,31 +77,39 @@ class GridDropdown extends React.Component {
   }
 
   render() {
-    const { label, activeItem, items } = this.props;
-    const { mainColor, textColor, buttonClass, dropdownClass, itemClass, itemLabelClass } = this.props;
+    const { label, activeItem } = this.props;
+    const { buttonClass, dropdownClass, itemClass, itemLabelClass } = this.props;
     const { buttonStyle, dropdownStyle, itemStyle, itemLabelStyle } = this.props;
     const { dropdown } = this.state;
 
-    const itemsJSX = items.map((item, index) =>
-      <div key={index} className={'react-grid-dropdown__item-container'}>
-        <Ripples during={800}>
-          <div className={itemClass?itemClass+' react-grid-dropdown__item':'react-grid-dropdown__item'}
+    // sortItemsBySection :: items -> [{section: undefined, items: [{}]}, {section: 'section 1', items: [{}]} ..]
+    const sections = this.sortItemsBySection(this.props.items)
 
-            style={this.getItemStyle(itemStyle, item)}
-            onClick={() => {
-              if (activeItem != item.label) {
-                setTimeout(() => {
-                  item.onClick()
-                  this.toggleDropdown()
-                }, 400)
-              }
-            }}>
+    const itemsJSX = sections.map((section, index) =>
+      <div key={index}>
+        {section.section && <div className="react-grid-dropdown__section-label">{section.section}</div>}
 
-            <div className={(itemLabelClass?itemLabelClass+' react-grid-dropdown__label':'react-grid-dropdown__label')+(activeItem==item.label?' active':'')}
-              style={itemLabelStyle}>{item.label}</div>
-          </div>
-        </Ripples>
-      </div>);
+        {section.items.map((item, index) =>
+          <div key={index} className={'react-grid-dropdown__item-container'}>
+            <Ripples during={800}>
+              <div className={itemClass?itemClass+' react-grid-dropdown__item':'react-grid-dropdown__item'}
+
+                style={this.getItemStyle(itemStyle, item)}
+                onClick={() => {
+                  if (activeItem != item.label) {
+                    setTimeout(() => {
+                      item.onClick()
+                      this.toggleDropdown()
+                    }, 400)
+                  }
+                }}>
+
+                <div className={(itemLabelClass?itemLabelClass+' react-grid-dropdown__label':'react-grid-dropdown__label')+(activeItem==item.label?' active':'')}
+                  style={itemLabelStyle}>{item.label}</div>
+              </div>
+            </Ripples>
+          </div>)}
+      </div>)
 
     return (
       <div className="react-grid-dropdown__container">

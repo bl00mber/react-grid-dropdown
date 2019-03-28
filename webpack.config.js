@@ -79,13 +79,13 @@ if (TARGET === 'build') {
   module.exports = merge(common, {
     mode: 'production',
     entry: {
-      'material-ui-grid-dropdown': path.resolve(ROOT_PATH, 'src/index.js')
+      'react-grid-dropdown': path.resolve(ROOT_PATH, 'src/index.js')
     },
     optimization: {},
     output: {
       path: path.resolve(ROOT_PATH, 'dist'),
       filename: 'lib.js',
-      library: 'GridDropdown',
+      library: 'ReactGridDropdown',
       libraryTarget: 'umd'
     }
   });

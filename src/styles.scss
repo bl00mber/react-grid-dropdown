@@ -2,6 +2,8 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 15px;
   position: relative;
+  font-weight: 500;
+  display: inline-block;
 }
 .react-grid-dropdown__button {
   padding: 5px 35px 5px 16px;
@@ -9,7 +11,6 @@
   position: relative;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 500;
   font-size: 0.875rem;
   letter-spacing: 0.02857em;
   line-height: 1.75;
@@ -49,15 +50,14 @@
   height: 345px;
   overflow-y: scroll;
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.23);
   position: absolute;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.4);
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 1;
   pointer-events: none;
   top: -200px;
   opacity: 0;
-  transition: 250ms ease;
+  transition: 450ms ease;
 
   &.active {
     top: 45px;
@@ -113,11 +113,19 @@
   text-shadow: 1px 1px 7px black;
 
   &.active {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 3px solid #929292;
+    background-color: rgba(255, 255, 255, 0.4);
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
     text-shadow: none;
     cursor: auto;
   }
+}
+.react-grid-dropdown__section-label {
+  margin-left: 5px;
+  padding: 5px 10px 5px 10px;
+  background: #fff;
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+  display: table;
+  color: #272727;
 }

@@ -14,7 +14,6 @@ import GridDropdown from 'react-grid-dropdown'
 const { itemId } = this.state;
 
 <GridDropdown
-  label="Dropdown"
   activeItem={itemId}
   items={
     [{section: 'category', label: 'item', background: 'https://...', id: 'itemId', onClick: () => this.setState({ item: 'itemId' })}]
@@ -44,17 +43,6 @@ const { itemId } = this.state;
     <td> items </td>
     <td> array </td>
     <td colspan="2"> items to render in the dropdown </td>
-  </tr>
-
-  <tr>
-    <td> mainColor </td>
-    <td> string </td>
-    <td colspan="2"> color defining background colors </td>
-  </tr>
-  <tr>
-    <td> textColor </td>
-    <td> string </td>
-    <td colspan="2"> color defining text colors </td>
   </tr>
 
   <tr>
