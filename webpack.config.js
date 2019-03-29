@@ -68,14 +68,6 @@ if (TARGET === 'dev') {
 
 // Production configuration settings
 if (TARGET === 'build') {
-  let plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      },
-      __DEV__: false
-    })
-  ];
   module.exports = merge(common, {
     mode: 'production',
     entry: {
@@ -87,6 +79,14 @@ if (TARGET === 'build') {
       filename: 'lib.js',
       library: 'ReactGridDropdown',
       libraryTarget: 'umd'
-    }
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        },
+        __DEV__: false
+      })
+    ]
   });
 }

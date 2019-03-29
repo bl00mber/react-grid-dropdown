@@ -14,12 +14,13 @@ npm install react-grid-dropdown --save
 ```jsx
 import GridDropdown from 'react-grid-dropdown'
 
-const { itemId } = this.state;
+const { activeItem } = this.state;
 
 <GridDropdown
-  activeItem={itemId}
+  label="dropdown"
+  activeItem={activeItem}
   items={
-    [{section: 'category', label: 'item', backgroundImage: `url(${url})` onClick: () => this.setState({ activeItem: 'itemId' })}]
+    [{section: 'category', label: 'itemLabel', id: 'itemId', backgroundImage: `url(${url})`, onClick: () => this.setState({ activeItem: 'itemId' })}]
   }
 />
 ```
@@ -46,6 +47,10 @@ const { itemId } = this.state;
     <td> items </td>
     <td> array </td>
     <td colspan="2"> items to render in the dropdown </td>
+  </tr>
+  <tr>
+    <td> sectionsOrder </td>
+    <td colspan="3"> array </td>
   </tr>
 
   <tr>
@@ -96,30 +101,31 @@ const { itemId } = this.state;
   <tr>
     <th> Name </th>
     <th> Type </th>
-    <th> Default </th>
   </tr>
 
   <tr>
     <td> section </td>
     <td> string </td>
-    <td> undefined </td>
   </tr>
   <tr>
     <td> label </td>
     <td> string </td>
-    <td> dropdown </td>
+  </tr>
+  <tr>
+    <td> id </td>
+    <td> string </td>
   </tr>
   <tr>
     <td> backgroundImage </td>
-    <td colspan="2"> string, url </td>
+    <td> string, url </td>
   </tr>
   <tr>
     <td> backgroundColor </td>
-    <td colspan="2"> string, color </td>
+    <td> string, color </td>
   </tr>
   <tr>
     <td> onClick </td>
-    <td colspan="2"> func </td>
+    <td> func </td>
   </tr>
 </table>
 

@@ -11,10 +11,13 @@ class GridDropdown extends React.Component {
 
     items: PropTypes.arrayOf(PropTypes.shape({
       section: PropTypes.string,
-      label: PropTypes.string.isRequired,
+      label: PropTypes.string,
+      id: PropTypes.string.isRequired,
       background: PropTypes.string,
       onClick: PropTypes.func.isRequired,
     })).isRequired,
+
+    sectionsOrder: PropTypes.arrayOf(PropTypes.string),
 
     buttonClass: PropTypes.string,
     dropdownClass: PropTypes.string,
@@ -47,6 +50,10 @@ class GridDropdown extends React.Component {
 
   sortItemsBySection = items => {
     const sections = [{section: undefined, items: []}]
+    // if sectionsOrder is specified, push sections before map to avoid wrong section position
+    const { sectionsOrder } = this.props;
+    if (sectionsOrder) sectionsOrder.forEach(sectionLabel => sections.push({section: sectionLabel, items: []}))
+
     items.map(item => {
       if (!item.section) { sections[0].items.push(item) }
       else {
@@ -61,6 +68,9 @@ class GridDropdown extends React.Component {
         sections[sectionIndex].items.push(item)
       }
     })
+
+    // if no items without section, shift undefined section
+    if (sections[0].items.length == 0) sections.shift()
     return sections
   }
 
@@ -96,7 +106,7 @@ class GridDropdown extends React.Component {
 
                 style={this.getItemStyle(itemStyle, item)}
                 onClick={() => {
-                  if (activeItem != item.label) {
+                  if (activeItem != item.id) {
                     setTimeout(() => {
                       item.onClick()
                       this.toggleDropdown()
@@ -104,8 +114,8 @@ class GridDropdown extends React.Component {
                   }
                 }}>
 
-                <div className={(itemLabelClass?itemLabelClass+' react-grid-dropdown__label':'react-grid-dropdown__label')+(activeItem==item.label?' active':'')}
-                  style={itemLabelStyle}>{item.label}</div>
+                <div className={(itemLabelClass?itemLabelClass+' react-grid-dropdown__label':'react-grid-dropdown__label')+(activeItem==item.id?' active':'')}
+                  style={itemLabelStyle}>{item.label&&item.label}</div>
               </div>
             </Ripples>
           </div>)}
