@@ -28,7 +28,7 @@ class GridDropdown extends React.Component {
   }
 
   static defaultProps = {
-    label: 'Dropdown',
+    label: 'dropdown',
     activeItem: 'not set',
 
     buttonStyle: {},
