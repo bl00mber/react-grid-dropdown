@@ -83,7 +83,8 @@ if (TARGET === 'build') {
       path: path.resolve(ROOT_PATH, 'dist'),
       filename: 'lib.js',
       library: 'ReactGridDropdown',
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
+      globalObject: 'this'
     },
     module: {
       rules: [
