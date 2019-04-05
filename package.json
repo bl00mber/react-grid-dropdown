@@ -1,6 +1,6 @@
 {
   "name": "react-grid-dropdown",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Dropdown with customizable grid",
   "main": "dist/lib.js",
   "scripts": {
@@ -26,7 +26,8 @@
   "files": [
     "LICENSE",
     "README.md",
-    "dist/lib.js"
+    "dist/lib.js",
+    "dist/style.css"
   ],
   "author": "Nick Reiley <bloomber111@gmail.com> (http://github.com/bl00mber)",
   "license": "MIT",
@@ -45,13 +46,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
-    "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
     "babel-preset-react-app": "^7.0.2",
     "chai": "^4.2.0",
     "css-loader": "^2.1.1",
     "img-loader": "^3.0.1",
     "jest": "^24.5.0",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "react-hot-loader": "^4.8.0",
     "sass-loader": "^7.1.0",
@@ -64,8 +65,8 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-ripples": "^1.1.2"
   }
 }

@@ -13,12 +13,11 @@ npm install react-grid-dropdown --save
 ## Usage
 ```jsx
 import GridDropdown from 'react-grid-dropdown'
-
-const { activeItem } = this.state;
+import 'react-phone-input-2/dist/style.css'
 
 <GridDropdown
   label="dropdown"
-  activeItem={activeItem}
+  activeItem={this.state.activeItem}
   items={
     [{section: 'category', label: 'itemLabel', id: 'itemId', backgroundImage: `url(${url})`, onClick: () => this.setState({ activeItem: 'itemId' })}]
   }

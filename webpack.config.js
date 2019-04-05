@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const TARGET = process.env.TARGET;
 const ROOT_PATH = path.resolve(__dirname);
@@ -23,10 +24,6 @@ const common = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         include: path.resolve(ROOT_PATH, 'src')
-      },
-      {
-        test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader'
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -54,6 +51,14 @@ if (TARGET === 'dev') {
       inline: true,
       progress: true,
     },
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          loader: 'style-loader!css-loader!sass-loader'
+        }
+      ]
+    },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
@@ -80,12 +85,30 @@ if (TARGET === 'build') {
       library: 'ReactGridDropdown',
       libraryTarget: 'umd'
     },
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            'css-loader',
+            'sass-loader'
+          ]
+        }
+      ]
+    },
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production')
         },
         __DEV__: false
+      }),
+      new MiniCssExtractPlugin({
+        filename: "style.css",
+        chunkFilename: "[id].css"
       })
     ]
   });
