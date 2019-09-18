@@ -1,6 +1,6 @@
 {
   "name": "react-grid-dropdown",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Dropdown with customizable grid",
   "main": "dist/lib.js",
   "scripts": {

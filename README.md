@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/react-grid-dropdown.svg?style=flat)](https://www.npmjs.com/package/react-grid-dropdown)
 [![travis build](https://travis-ci.org/bl00mber/react-grid-dropdown.svg?branch=master)](https://travis-ci.org/bl00mber/react-grid-dropdown)
 
-![alt tag](https://github.com/bl00mber/react-grid-dropdown/blob/master/test/animation.gif)
+![alt tag](https://raw.githubusercontent.com/bl00mber/react-grid-dropdown/master/test/animation.gif)
 
 ## Installation
 ```shell-script
