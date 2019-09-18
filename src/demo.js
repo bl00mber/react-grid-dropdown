@@ -71,20 +71,9 @@ class TestComponent extends React.Component {
           itemStyle={styles.itemStyle}
           itemLabelStyle={styles.itemLabelStyle}
         />
-        <div style={{fontSize: '12px', display: 'inline-block', position: 'absolute', left: '510px', top: '63px'}}>developed by <a style={{color: 'black'}} href="https://github.com/bl00mber">bl00mber</a>
-        </div>
-        <div style={{width: '600px', padding: '10px 5px'}}>
-          Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.<br/><br/>
-
-          Inspired by the physical world and its textures, including how they reflect light and cast shadows. Material surfaces reimagine the mediums of paper and ink.<br/><br/>
-
-          Guided by print design methods — typography, grids, space, scale, color, and imagery — to create hierarchy, meaning, and focus that immerse viewers in the experience.<br/><br/>
-
-          Motion focuses attention and maintains continuity, through subtle feedback and coherent transitions. As elements appear on screen, they transform and reorganize the environment, with interactions generating new transformations.<br/><br/>
-
-          Designed to enable brand expression. It’s integrated with a custom code base that allows the seamless implementation of components, plug-ins, and design elements.<br/><br/>
-
-          Maintains the same UI across platforms, using shared components across Android, iOS, Flutter, and the web.
+      <div style={{fontSize: '12px', display: 'inline-block',
+        position: 'absolute', left: '65px', top: '430px'}}>
+        developed by <a style={{color: 'black'}} href="https://github.com/bl00mber">Nick Reiley</a>
         </div>
       </div>
     )

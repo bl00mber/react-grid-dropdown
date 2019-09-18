@@ -1,6 +1,6 @@
 {
   "name": "react-grid-dropdown",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Dropdown with customizable grid",
   "main": "dist/lib.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "dist/lib.js",
     "dist/style.css"
   ],
-  "author": "Nick Reiley <bloomber111@gmail.com> (http://github.com/bl00mber)",
+  "author": "Nick Reiley <bloomber111@gmail.com> (https://github.com/bl00mber)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bl00mber/react-grid-dropdown/issues"
@@ -37,8 +37,8 @@
   "homepage": "https://github.com/bl00mber/react-grid-dropdown",
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|stylus|scss)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
+      "\\.(css|less|stylus|scss)$": "<rootDir>/test/__mocks__/styleMock.js"
     },
     "globals": {
       "__DEV__": false
@@ -48,7 +48,6 @@
     "@babel/core": "^7.4.0",
     "babel-loader": "^8.0.5",
     "babel-preset-react-app": "^7.0.2",
-    "chai": "^4.2.0",
     "css-loader": "^2.1.1",
     "img-loader": "^3.0.1",
     "jest": "^24.5.0",
@@ -65,8 +64,8 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-ripples": "^1.1.2"
   }
 }
