@@ -13,7 +13,7 @@ npm install react-grid-dropdown --save
 ## Usage
 ```jsx
 import GridDropdown from 'react-grid-dropdown'
-import 'react-phone-input-2/dist/style.css'
+import 'react-grid-dropdown/dist/style.css'
 
 <GridDropdown
   label="dropdown"

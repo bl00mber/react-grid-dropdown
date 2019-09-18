@@ -19,6 +19,8 @@ class GridDropdown extends React.Component {
 
     sectionsOrder: PropTypes.arrayOf(PropTypes.string),
 
+    onClickResponseTime: PropTypes.number,
+
     buttonClass: PropTypes.string,
     dropdownClass: PropTypes.string,
     itemClass: PropTypes.string,
@@ -33,6 +35,8 @@ class GridDropdown extends React.Component {
   static defaultProps = {
     label: 'dropdown',
     activeItem: 'not set',
+
+    onClickResponseTime: 400,
 
     buttonStyle: {},
     dropdownStyle: {},
@@ -87,7 +91,7 @@ class GridDropdown extends React.Component {
   }
 
   render() {
-    const { label, activeItem } = this.props;
+    const { label, activeItem, onClickResponseTime } = this.props;
     const { buttonClass, dropdownClass, itemClass, itemLabelClass } = this.props;
     const { buttonStyle, dropdownStyle, itemStyle, itemLabelStyle } = this.props;
     const { dropdown } = this.state;
@@ -110,7 +114,7 @@ class GridDropdown extends React.Component {
                     setTimeout(() => {
                       item.onClick()
                       this.toggleDropdown()
-                    }, 400)
+                    }, onClickResponseTime)
                   }
                 }}>
 
